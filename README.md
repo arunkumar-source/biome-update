@@ -30,3 +30,7 @@ To use the components in your app, import them from the `ui` package.
 import { Button } from "@workspace/ui/components/button"
 ```
 it is changed
+
+## Pre-commit Hook
+
+This project uses Husky for pre-commit hooks with Biome linting.
