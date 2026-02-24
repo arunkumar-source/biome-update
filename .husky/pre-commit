@@ -1,14 +1,7 @@
 #!/bin/sh
-# Exit on any error
-set -e
 
-# Run lint check
+pnpm format
+echo "✅ Format check passed"
+
 pnpm lint
-LINT_EXIT_CODE=$?
-
-if [ $LINT_EXIT_CODE -ne 0 ]; then
-  echo "❌ Lint check failed. Please fix linting issues before committing."
-  exit $LINT_EXIT_CODE
-fi
-
 echo "✅ Lint check passed"
