@@ -39,7 +39,12 @@ app.use("*", logger());
 
 // CORS middleware
 const corsOptions = cors({
-  origin: ["http://localhost:3000", "mobile://", "exp://", "http://192.168.29.224:8081"],
+  origin: [
+    "http://localhost:3000",
+    "mobile://",
+    "exp://",
+    "http://192.168.29.224:8081",
+  ],
   allowMethods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
   allowHeaders: ["Content-Type", "Authorization", "Cookie"],
   exposeHeaders: ["user"],

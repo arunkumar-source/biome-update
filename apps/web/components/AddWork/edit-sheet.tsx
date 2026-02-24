@@ -23,7 +23,6 @@ interface FormValues {
   title: string;
 }
 
-
 function formatDateForInputs(isoString?: string) {
   if (!isoString) {
     return { date: "", time: "" };
@@ -31,7 +30,7 @@ function formatDateForInputs(isoString?: string) {
 
   const local = new Date(isoString);
 
-  const date = local.toLocaleDateString("en-CA"); 
+  const date = local.toLocaleDateString("en-CA");
   const time = local.toLocaleTimeString("en-GB", {
     hour: "2-digit",
     minute: "2-digit",

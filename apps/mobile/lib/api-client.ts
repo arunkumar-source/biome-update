@@ -11,7 +11,7 @@ const client = createClient<paths>({
 
 const authMiddleware: Middleware = {
   onRequest(options) {
-    const cookies = authClient.getCookie()
+    const cookies = authClient.getCookie();
     options.request.headers.set("Cookie", cookies);
 
     return options.request;

@@ -8,7 +8,12 @@ interface ToastProps {
   onHide: () => void;
 }
 
-export function Toast({ message, type = "success", visible, onHide }: ToastProps) {
+export function Toast({
+  message,
+  type = "success",
+  visible,
+  onHide,
+}: ToastProps) {
   const [fadeAnim] = useState(new Animated.Value(0));
 
   useEffect(() => {
@@ -31,7 +36,9 @@ export function Toast({ message, type = "success", visible, onHide }: ToastProps
     }
   }, [visible, fadeAnim, onHide]);
 
-  if (!visible) { return null; }
+  if (!visible) {
+    return null;
+  }
 
   const bgColor = type === "error" ? "bg-red-500" : "bg-green-500";
 
@@ -55,12 +62,15 @@ export function useToast() {
     visible: boolean;
   }>({ message: "", type: "success", visible: false });
 
-  const showToast = (message: string, type: "success" | "error" = "success") => {
+  const showToast = (
+    message: string,
+    type: "success" | "error" = "success"
+  ) => {
     setToast({ message, type, visible: true });
   };
 
   const hideToast = () => {
-    setToast(prev => ({ ...prev, visible: false }));
+    setToast((prev) => ({ ...prev, visible: false }));
   };
 
   return { toast, showToast, hideToast };

@@ -38,7 +38,10 @@ export default function RegisterScreen() {
       showToast("Account created successfully!", "success");
       router.push("/(auth)/login");
     } catch (err: unknown) {
-      showToast(err instanceof Error ? err.message : "Registration failed", "error");
+      showToast(
+        err instanceof Error ? err.message : "Registration failed",
+        "error"
+      );
     }
   };
 

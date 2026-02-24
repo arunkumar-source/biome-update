@@ -24,7 +24,7 @@ export default function LoginScreen() {
         email: data.email,
         password: data.password,
       });
-      
+
       if (result.error) {
         console.error("Login error:", result.error);
         showToast(result.error.message || "Login failed", "error");

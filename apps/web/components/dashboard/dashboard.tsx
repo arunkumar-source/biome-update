@@ -27,13 +27,19 @@ import type { Work } from "@repo/shared";
 const collectDatesFromWorks = (works: Work[]) => {
   const dateSet = new Set<string>();
   const today = new Date().toISOString().split("T")[0];
-  if (today) { dateSet.add(today); }
+  if (today) {
+    dateSet.add(today);
+  }
 
   for (const work of works) {
-    const date = work.endDate ? new Date(work.endDate) : new Date(work.createdAt);
+    const date = work.endDate
+      ? new Date(work.endDate)
+      : new Date(work.createdAt);
     if (date && !Number.isNaN(date.getTime())) {
       const dateStr = date.toISOString().split("T")[0];
-      if (dateStr) { dateSet.add(dateStr); }
+      if (dateStr) {
+        dateSet.add(dateStr);
+      }
     }
   }
 
@@ -65,24 +71,33 @@ const initializeStatusMap = (dates: string[]) => {
   return statusMap;
 };
 
-const countTasksPerDate = (works: Work[], statusMap: {
-  [key: string]: {
-    todo: number;
-    "in-progress": number;
-    done: number;
-    backlog: number;
-    cancelled: number;
-  };
-}) => {
+const countTasksPerDate = (
+  works: Work[],
+  statusMap: {
+    [key: string]: {
+      todo: number;
+      "in-progress": number;
+      done: number;
+      backlog: number;
+      cancelled: number;
+    };
+  }
+) => {
   for (const work of works) {
-    const targetDate = work.endDate ? new Date(work.endDate) : new Date(work.createdAt);
-    if (!targetDate || Number.isNaN(targetDate.getTime())) { continue; }
+    const targetDate = work.endDate
+      ? new Date(work.endDate)
+      : new Date(work.createdAt);
+    if (!targetDate || Number.isNaN(targetDate.getTime())) {
+      continue;
+    }
 
     const dateStr = targetDate.toISOString().split("T")[0];
-    if (!dateStr) { continue; }
+    if (!dateStr) {
+      continue;
+    }
 
     if (statusMap[dateStr] && work.status in statusMap[dateStr]) {
-      statusMap[dateStr][work.status as keyof typeof statusMap[string]]++;
+      statusMap[dateStr][work.status as keyof (typeof statusMap)[string]]++;
     }
   }
 };
@@ -125,10 +140,18 @@ const formatDate = (work: Work) => {
 };
 
 const getBadgeColor = (statusKey: string) => {
-  if (statusKey === "todo") { return "bg-yellow-500"; }
-  if (statusKey === "in-progress") { return "bg-blue-500"; }
-  if (statusKey === "done") { return "bg-green-500"; }
-  if (statusKey === "backlog") { return "bg-gray-500"; }
+  if (statusKey === "todo") {
+    return "bg-yellow-500";
+  }
+  if (statusKey === "in-progress") {
+    return "bg-blue-500";
+  }
+  if (statusKey === "done") {
+    return "bg-green-500";
+  }
+  if (statusKey === "backlog") {
+    return "bg-gray-500";
+  }
   return "bg-red-500"; // cancelled
 };
 
