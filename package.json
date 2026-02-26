@@ -11,10 +11,12 @@
     "fix": "ultracite fix",
     "format": "biome format --write",
     "lint": "biome lint --write",
+    "clean:types": "ts-unused-exports tsconfig.json --allowUnusedEnums",
     "prepare": "husky"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.0",
+    "@playwright/test": "^1.58.2",
     "@types/node": "^25.3.0",
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
