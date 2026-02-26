@@ -31,8 +31,8 @@ jobs:
     - name: Check formatting
       run: pnpm format
       
-    - name: Type check
-      run: pnpm check
+    - name: Lint check
+      run: pnpm lint
        
     - name: Check for changes
       run: echo "No changes detected" && "successfully passed"
