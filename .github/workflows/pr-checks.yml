@@ -33,7 +33,7 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           BETTER_AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
           BETTER_AUTH_URL: ${{ secrets.BETTER_AUTH_URL }}
-          NEXT_PUBLIC_API_URL: ${{ secrets.APP_URL }}
+          APP_URL: ${{ secrets.APP_URL }}
 
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
