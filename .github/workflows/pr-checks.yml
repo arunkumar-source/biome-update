@@ -41,7 +41,7 @@ jobs:
         run: pnpm exec playwright test
 
   create-pr:
-    needs: test
+    needs: format-lint-test
     runs-on: ubuntu-latest
 
     steps:
