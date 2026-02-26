@@ -1,8 +1,8 @@
 name: PR Checks
 
 on:
-  push:
-    branches: [ test ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   format-lint-test:
@@ -44,20 +44,3 @@ jobs:
 
       - name: Playwright Tests
         run: pnpm exec playwright test
-
-  create-pr:
-    needs: format-lint-test
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: auto/feature-to-main
-          base: main
-          delete-branch: true
-          title: "Auto PR from feature-testing"
-          body: "Created automatically after CI checks passed."
