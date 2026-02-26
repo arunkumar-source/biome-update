@@ -34,10 +34,10 @@ jobs:
         run: pnpm exec playwright install --with-deps
 
       - name: Start server
-        run: pnpm start &
+        run: pnpm dev &
 
       - name: Wait for server
-        run: npx wait-on ${{ secrets.APP_URL }} --timeout 60000
+        run: pnpx wait-on ${{ secrets.APP_URL }} --timeout 60000
 
       - name: Run Playwright tests
         run: pnpm exec playwright test tests/example.spec.ts --workers=1
