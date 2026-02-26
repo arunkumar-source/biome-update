@@ -7,6 +7,8 @@ test("test", async ({ page }) => {
   await page.getByRole("textbox", { name: "Password" }).click();
   await page.getByRole("textbox", { name: "Password" }).fill("arun@123");
   await page.getByRole("button", { name: "Login" }).click();
+  await page.waitForTimeout(3000);
+  await page.screenshot({ path: "after-login.png" });
   await page.getByRole("button", { name: "Add Work" }).click();
   await page.getByRole("textbox", { name: "Title" }).fill("add");
   await page.getByRole("textbox", { name: "Description" }).click();
