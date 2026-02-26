@@ -11,7 +11,7 @@ jobs:
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
-      NEXT_PUBLIC_APP_URL: http://localhost:3000
+      BETTER_AUTH_URL: http://localhost:3000
 
     container:
       image: mcr.microsoft.com/playwright:v1.58.2-jammy
