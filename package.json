@@ -11,6 +11,7 @@
     "fix": "ultracite fix",
     "format": "biome format --write",
     "lint": "biome lint --write",
+    "clean:types": "ts-unused-exports tsconfig.json --allowUnusedEnums",
     "prepare": "husky"
   },
   "devDependencies": {
