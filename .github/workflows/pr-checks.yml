@@ -33,6 +33,8 @@ jobs:
 
       - name: Lint check
         run: pnpm lint
+      - name : Playwright testing 
+        run: pnpm playwright test
 
       - name: Create Pull Request
         if: steps.commit.outputs.changes == 'true'
