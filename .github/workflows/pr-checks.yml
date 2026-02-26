@@ -2,7 +2,7 @@ name: PR Checks
 
 on:
   push:
-    branches: [ feature-testing ]
+    branches: [ test ]
 
 jobs:
   format-lint-test:
