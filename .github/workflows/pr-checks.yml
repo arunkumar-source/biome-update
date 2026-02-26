@@ -34,7 +34,7 @@ jobs:
         run: pnpm exec playwright install --with-deps
 
       - name: Run Playwright tests
-        run: pnpm exec playwright test tests/work.spec.ts --workers=1
+        run: pnpm exec playwright test tests/example.spec.ts --workers=1
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
