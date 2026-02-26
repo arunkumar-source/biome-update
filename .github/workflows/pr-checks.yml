@@ -33,8 +33,12 @@ jobs:
 
       - name: Lint check
         run: pnpm lint
-      - name : Playwright testing 
-        run: pnpm playwright test
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install
+
+      - name: Run Playwright tests
+        run: pnpm exec playwright test
 
       - name: Create Pull Request
         if: steps.commit.outputs.changes == 'true'
