@@ -1,6 +1,5 @@
 import { test } from "@playwright/test";
 const regx = /^$/;
-test.setTimeout(90_000);
 test("test", async ({ page }) => {
   await page.goto("http://localhost:3000/");
   await page.getByRole("textbox", { name: "Email" }).click();
