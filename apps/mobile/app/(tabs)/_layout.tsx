@@ -26,8 +26,14 @@ export default function TabsLayout() {
           name="add-work"
           options={{
             title: "Add Work",
+            tabBarButtonTestID: "tab-addwork",
             tabBarIcon: ({ color, size }) => (
-              <Ionicons color={color} name="add-circle-outline" size={size} />
+              <Ionicons
+                color={color}
+                name="add-circle-outline"
+                size={size}
+                testID="addwork"
+              />
             ),
           }}
         />
