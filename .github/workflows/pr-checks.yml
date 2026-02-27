@@ -2,7 +2,7 @@ name: Playwright Tests
 
 on:
   pull_request:
-    branches: [ main, master ]
+    branches: [ main, test ]
 
 jobs:
   test:
@@ -24,17 +24,7 @@ jobs:
       - name: Build workspace packages
         run: pnpm build
 
-      - name: Create root .env
-        run: |
-          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
-          echo "BETTER_AUTH_SECRET=${{ secrets.BETTER_AUTH_SECRET }}" >> .env
-          echo "APP_URL=${{ secrets.APP_URL }}" >> .env
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          BETTER_AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
-          BETTER_AUTH_URL: ${{ secrets.BETTER_AUTH_URL }}
-          APP_URL: ${{ secrets.APP_URL }}
-
+      
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
         env:
