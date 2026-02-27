@@ -2,7 +2,7 @@
 // import { sign} from "hono/jwt";
 // import { adminMiddleware } from "./adminMiddleware";
 
-import { serve } from "@hono/node-server";
+// import { serve } from "@hono/node-server";
 import { db, schema } from "@repo/db";
 import { Scalar } from "@scalar/hono-api-reference";
 // import { deleteCookie, setCookie } from "hono/cookie";
@@ -229,11 +229,11 @@ app.get(
   }))
 );
 
-const _server = serve({
-  fetch: app.fetch,
-  port: 4000,
-});
+// const _server = serve({
+//   fetch: app.fetch,
+//   port: 4000,
+// });
 
-console.log("Server is running on http://localhost:4000/api");
+// console.log("Server is running on http://localhost:4000/api");
 
 export default handle(app);
