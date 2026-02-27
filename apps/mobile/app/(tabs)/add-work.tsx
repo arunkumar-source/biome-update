@@ -202,6 +202,7 @@ export default function AddWorkScreen() {
             <TouchableOpacity
               className="rounded-md border border-gray-300 p-2"
               onPress={() => setShowDatePicker(true)}
+              testID="date selection"
             >
               <Text>{value ? value.toDateString() : "Select Date"}</Text>
             </TouchableOpacity>
@@ -215,6 +216,7 @@ export default function AddWorkScreen() {
                     onChange(selectedDate);
                   }
                 }}
+                testID="date picking"
                 value={value || new Date()}
               />
             )}

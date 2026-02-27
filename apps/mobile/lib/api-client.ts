@@ -4,8 +4,7 @@ import createReactQueryClient from "openapi-react-query";
 import { authClient } from "./auth-client";
 
 const client = createClient<paths>({
-  baseUrl: "http://192.168.29.224:4000",
-
+  baseUrl: "http://192.168.1.20:4000",
   credentials: "omit",
 });
 
